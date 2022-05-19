@@ -24,3 +24,12 @@ Dataset - https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
 
 Search for a movie by typing in the box and choose from the dropdown menu. Click on the Recommend Button. The app will show you five recommendations using Content-Based Filtering. You can use the app for 5000 movies registered in teh TMDB 500 Database, and can be extended further by including other databases.
 
+## Screenshots
+
+![image](https://user-images.githubusercontent.com/77076578/169351537-dc5d11d5-6f19-44e8-b23f-6f15d7ce1d92.png)
+
+![image](https://user-images.githubusercontent.com/77076578/169351638-fd7a0c61-a48e-48e6-bdda-05c5062aec35.png)
+
+![image](https://user-images.githubusercontent.com/77076578/169351757-cf9a6256-d3d3-4b77-930f-e857253262e3.png)
+
+
