@@ -1,6 +1,6 @@
 # movie-recommendation-engine-streamlit
 
-This is a Recommendation Engine that uses Content-Based Filtering to recommend movie titles. The engine has been built on Python and the interface has been implemented using Streamlit. It is a very light program with minimal customisation. 
+This is a Recommendation Engine that uses different Filtering Techniques to recommend movies to the user. This application works on Python and Streamlit
 
 Dataset - https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
 
