@@ -1,35 +1,53 @@
 # movie-recommendation-engine-streamlit
 
-This is a Recommendation Engine that uses different Filtering Techniques to recommend movies to the user. This application works on Python and Streamlit
+This is a Recommendation Engine that uses different Filtering Techniques to recommend movies to the user. This application works on Python and uses Streamlit for its web app. We will discuss the algorithms and implementation in detail.
 
 Dataset - https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
+
+Hosted on Heroku - https://recommender-engine-streamlit.herokuapp.com/
+
 
 ## HOSTING THE APP ON LOCALHOST
 
 1. Clone the repository into your local environment using command `git clone https://github.com/dayitachaudhuri/movie-recommendation-engine-streamlit`
-2. Create a directory dataset inside the current directory. Import the TMDB 500 Movies datasets from the link given above and place them inside the dataset directory. The directory will now look somewhat like this -
-  
-  ![image](https://user-images.githubusercontent.com/77076578/169348033-d63755c7-e278-444a-921e-0e52a8928d48.png)
+2. On the terminal, run `pip install -r requirements.txt` All the required packages will now be installed.
+3. On the terminal, run `streamlit run app.py`.
 
-3. On the terminal, run `pip install -r requirements.txt` All the required packages will now be installed.
-4. Run recommendation-engine.py. You will see three new .pkl files created in teh current directory. These are the preprocessed and cleaned data.
-  
-  ![image](https://user-images.githubusercontent.com/77076578/169348664-30194b5b-d618-4fab-970a-d5f470032f10.png)
+The application will now be running on your [localhost.](http://localhost:8501/)
 
-6. On the terminal, run `streamlit run app.py`.
+OR YOU CAN DIRECTLY ACCESS TEH APPLICATION HOSTED ON HEROKU https://recommender-engine-streamlit.herokuapp.com/
+
+## RECOMMENDATION ENGINE:
+
+The basic and quite straighforward aim of a recommendation engine is to recommend items (in this case movies) to the user based on the data available. In this project, I have built from scratch 3 Recommendation Engine Models.
+
+_The homepage of the application shows 20 general movie recommendations based on -_
+
+#### 1. Popularity 
+
+When we enter a car showroom, the first products the salesman shows us are the most popular vehicles. Similarly here we get popularity of each movie from out dataset. We recommend 10 most popular movies and 10 highest rated movies to the user.
+
+_After that, we move to the search page, where we get more personalised recommendations. These are based on two techniques -_
+
+#### 2. Content-Based Recommendation
+
+Here we assume that if the user likes a movie of a particular type, he/she will like all movies of that type. We prepocess our data and create tags for all movies. Then we compare the tags for each movie and create Distance Vectors which show how similar any two movies are. The user is prompted to choose a movie they like, following which the engine recommends top 5 movies that are closest to it is the Similariy Vector Matrix, ie most similar to the chosen movie.
+
+#### 3. Collaborative Filtering
+
+Here we assume that if if two users like similar movies, they will keep liking similar movies. We process the user rating dataset and train a ML Model to predict how each user would rate each movie. The model itself identifies the relationship between most similar users and provides ratings accordingly. Then we eliminate movies that have already been rated by a user by making the ratings 0. Now we recommend the top 5 movies for the current user that the model has given highest predicted rating.
 
 ## USING THE INTERFACE
 
-  ![image](https://user-images.githubusercontent.com/77076578/169349118-baf2250b-c09e-40a8-8dc9-1de48afbacfa.png)
+In the home page, you can find 10 most popular movies and 10 highest rated movies. This is the firsta nd most general of all recommendation systems.
 
-Search for a movie by typing in the box and choose from the dropdown menu. Click on the Recommend Button. The app will show you five recommendations using Content-Based Filtering. You can use the app for 5000 movies registered in teh TMDB 500 Database, and can be extended further by including other databases.
+![image](https://user-images.githubusercontent.com/77076578/170585862-e146667a-1c57-4442-93a1-cf25492e4185.png)
+![image](https://user-images.githubusercontent.com/77076578/170586012-e236a6bb-4924-4634-95bb-18bf0634c3e4.png)
 
-## Screenshots
+In teh Search Page (most important), the user can search for a movie or choose from the dropdown. Click on the Recommend Button. The application then recommends 5 movies using Content-Based Recommendation in "Movies Like This" section and 5 movies using Collaborative Filtering in "Users Also Liked" section.
 
-![image](https://user-images.githubusercontent.com/77076578/169351537-dc5d11d5-6f19-44e8-b23f-6f15d7ce1d92.png)
+![image](https://user-images.githubusercontent.com/77076578/170586080-514e5b8c-5140-4fe8-9f45-9fbf6568ced3.png)
+![image](https://user-images.githubusercontent.com/77076578/170586252-d52371e7-8df9-4ef0-82b3-08689fe02677.png)
 
-![image](https://user-images.githubusercontent.com/77076578/169351638-fd7a0c61-a48e-48e6-bdda-05c5062aec35.png)
-
-![image](https://user-images.githubusercontent.com/77076578/169351757-cf9a6256-d3d3-4b77-930f-e857253262e3.png)
-
+## IMPLEMENTATION
 
