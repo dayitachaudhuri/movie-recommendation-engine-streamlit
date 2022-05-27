@@ -4,8 +4,6 @@ This is a Recommendation Engine that uses different Filtering Techniques to reco
 
 Dataset - https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
 
-Hosted on Heroku - https://recommender-engine-streamlit.herokuapp.com/
-
 
 ## HOSTING THE APP ON LOCALHOST
 
@@ -15,7 +13,7 @@ Hosted on Heroku - https://recommender-engine-streamlit.herokuapp.com/
 
 The application will now be running on your [localhost.](http://localhost:8501/)
 
-OR YOU CAN DIRECTLY ACCESS THE APPLICATION HOSTED ON HEROKU https://recommender-engine-streamlit.herokuapp.com/
+Or youcan directly access the hosted application on Heroku https://recommender-engine-streamlit.herokuapp.com/
 
 ## RECOMMENDATION ENGINE:
 
@@ -44,7 +42,7 @@ In the home page, you can find 10 most popular movies and 10 highest rated movie
 ![image](https://user-images.githubusercontent.com/77076578/170585862-e146667a-1c57-4442-93a1-cf25492e4185.png)
 ![image](https://user-images.githubusercontent.com/77076578/170586012-e236a6bb-4924-4634-95bb-18bf0634c3e4.png)
 
-In teh Search Page (most important), the user can search for a movie or choose from the dropdown. Click on the Recommend Button. The application then recommends 5 movies using Content-Based Recommendation in "Movies Like This" section and 5 movies using Collaborative Filtering in "Users Also Liked" section.
+In the Search Page (most important), the user can search for a movie or choose from the dropdown. Click on the Recommend Button. The application then recommends 5 movies using Content-Based Recommendation in "Movies Like This" section and 5 movies using Collaborative Filtering in "Users Also Liked" section.
 
 ![image](https://user-images.githubusercontent.com/77076578/170586080-514e5b8c-5140-4fe8-9f45-9fbf6568ced3.png)
 ![image](https://user-images.githubusercontent.com/77076578/170586252-d52371e7-8df9-4ef0-82b3-08689fe02677.png)
@@ -55,7 +53,7 @@ Project directory resembles the below -
 
 ![image](https://user-images.githubusercontent.com/77076578/170717861-6bd78b5e-f11e-40a6-9fee-ced5bb8921d9.png)
 
-#### recommendation-engine.ipynb
+### recommendation-engine.ipynb
 
 This is essentially the backend of our application.
 
@@ -89,7 +87,7 @@ This is essentially the backend of our application.
 
 8. Now our predicted ratings set contains all predicted as well as original given ratings. We cannot recommend movies that are already rated by the user. Hence we multiply the predicted ratings with our dummy training set. This makes all rated movies 0 and hence will not be considered while taking top 5. We store these Predicted Ratings in a Pickle File that can be accessed by our streamlit application.
 
-#### app.py
+### app.py
 
 This is our actual streamlit application. Here we import the pickle files and define functions to extract data for each recommendation method. 
 
