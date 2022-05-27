@@ -59,6 +59,8 @@ Project directory resembles the below -
 
 This is essentially the backend of our application.
 
+**PART 1: Content-Based Filtering**
+
 1. We use the pandas library to import the datasets. We merge credits.csv into movies.csv on the basis of the id column. Next we merge the links.csv into the current movies.csv. After that we sort our the relevant columns from movies.csv and remove the rest. Relevant columns include -
 - Movie ID (TMDB)
 - Title
@@ -71,8 +73,37 @@ This is essentially the backend of our application.
 - Average Vote
 - Movie ID (MovieLens)
 
-2. We use the ast library to convert genres, keywords and cast fields to list format which will be easier to process. For cast, we keep only the first 5 names and remove the rest for relevance. Then we extract director's name from crew and place it as the only item in a list in crew field.
-3. Since we need our model to identify cast and crew first and last names together as one entity, we remove all white spaces from cast and crew field entries. We also remove white spaces from keyword entries.
-4. Overview is currently a long string. We split overview into a list of smaller strings (each word)
-5. We introduce a new field 'tags' that incorporate all the members of 'overview', 'keywords', 'genres', 'cast', 'crew' fields. This is the actual field with which we wll compare and find relationship among movies.
-6. Next we use the Natural Language Toolkit of Python (nltk) to transform the tags of teh movies to stem words. In thsi way, similar words will be identifies as similar by our algorithm.
+2. We use the ast library to convert genres, keywords and cast fields to list format which will be easier to process. For cast, we keep only the first 5 names and remove the rest for relevance. Then we extract director's name from crew and place it as the only item in a list in crew field. Since we need our model to identify cast and crew first and last names together as one entity, we remove all white spaces from cast and crew field entries. We also remove white spaces from keyword entries. Overview is currently a long string. We split overview into a list of smaller strings (each word).
+
+3. We introduce a new field 'tags' that incorporate all the members of 'overview', 'keywords', 'genres', 'cast', 'crew' fields. This is the actual field with which we wll compare and find relationship among movies.
+
+4. Next we use the Natural Language Toolkit of Python (nltk) to transform the tags of teh movies to stem words. In this way, similar words will be identifies as similar by our algorithm.
+
+5. Now that we have our tags ready, we use sklearn library to create a Similarity Vector Matric for our movies. This will provide us a similarity score for every movie to every movie. We store this Similarity Matrix in a pickle file which will be accessed by our streamlit application.
+
+**PART 2: Collaborative Filtering**
+
+6. We use Pandas to import the ratings.csv dataset. We split the dataset into 70%:30% Training set:Testing Set ratio, and train the ML Model on the obtained training set. We create a dummy copy of the training and testing sets. In the dummy_train, we replace all ratings that exist by 0 and make unrated positions 1. In dummy_test we replace all ratings that exist by 1 and all unrated positions by 0. These dummy sets will be used later.
+
+7. We use our trained model to create a similarity matrix between users. We use the similarity matrix in our model to predict ratings for all unrated movies for all users.
+
+8. Now our predicted ratings set contains all predicted as well as original given ratings. We cannot recommend movies that are already rated by the user. Hence we multiply the predicted ratings with our dummy training set. This makes all rated movies 0 and hence will not be considered while taking top 5. We store these Predicted Ratings in a Pickle File that can be accessed by our streamlit application.
+
+#### app.py
+
+This is our actual streamlit application. Here we import the pickle files and define functions to extract data for each recommendation method. 
+
+1. First we define a function `fetch_poster(id)` that uses the TMDB API to fetch movie poster from the movie ID given as argument.
+
+2. For the Home Page, we simply create a function `recommend_0()` extract the movies with highest popularity and rating.
+
+3. For the Search page, we define two functions. `recommend_0(movie)` is to implement Content-Based Filtering, where we find the 5 movies from our Movie Similarity Matrix that are closest to the given movie. `recommend_0(movieId)` is to implement Collaborative Filtering, where we find the 5 movies from our Prediicted Ratings Matrix in the given movieId column that have the highest predicted rating.
+
+_For the sake of convenience we have set the user as User 1 in the source code. However it is possible to create a Sign-Up/Log-In page and store user details and give personalised recommendations in collaborative filtering. _
+
+## FUTURE SCOPE
+
+- Devising a method to collect user data like Search History, Most Liked Actors and Most Liked Genres to give more personalised recommendation on Content-Based Filtering.
+- Creating a Registration/Login System and a rating system to expand our datasets and give personalised recommendations on Collaborative Filtering.
+
+_This work will require some more time but is feasible and can be implemented._
