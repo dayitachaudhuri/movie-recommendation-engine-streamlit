@@ -87,6 +87,10 @@ This is essentially the backend of our application.
 
 8. Now our predicted ratings set contains all predicted as well as original given ratings. We cannot recommend movies that are already rated by the user. Hence we multiply the predicted ratings with our dummy training set. This makes all rated movies 0 and hence will not be considered while taking top 5. We store these Predicted Ratings in a Pickle File that can be accessed by our streamlit application.
 
+**PART 3: Evaluation**
+
+Here we evaluate our model and find a Root Mean Sqaure Error of 1.5635654266606624 and Mean Absolute Error of 1.2116342196650216
+
 ### app.py
 
 This is our actual streamlit application. Here we import the pickle files and define functions to extract data for each recommendation method. 
@@ -97,11 +101,12 @@ This is our actual streamlit application. Here we import the pickle files and de
 
 3. For the Search page, we define two functions. `recommend_0(movie)` is to implement Content-Based Filtering, where we find the 5 movies from our Movie Similarity Matrix that are closest to the given movie. `recommend_0(movieId)` is to implement Collaborative Filtering, where we find the 5 movies from our Prediicted Ratings Matrix in the given movieId column that have the highest predicted rating.
 
-_For the sake of convenience we have set the user as User 1 in the source code. However it is possible to create a Sign-Up/Log-In page and store user details and give personalised recommendations in collaborative filtering. _
+_For the sake of convenience we have set the user as User 1 in the source code. This value of user can be changed in the source cod eand experimented with. However it is possible to create a Sign-Up/Log-In page and store user details to give personalised recommendations in collaborative filtering. _
 
 ## FUTURE SCOPE
 
 - Devising a method to collect user data like Search History, Most Liked Actors and Most Liked Genres to give more personalised recommendation on Content-Based Filtering.
 - Creating a Registration/Login System and a rating system to expand our datasets and give personalised recommendations on Collaborative Filtering.
+- We have evaluated our model and we can create corresponding deviations to make our modle more accurate to the case of the user.
 
-_This work will require some more time but is feasible and can be implemented._
+_This work will make the application more heavy-weight and can be implemented in appropriate time._
