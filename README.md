@@ -15,7 +15,7 @@ Hosted on Heroku - https://recommender-engine-streamlit.herokuapp.com/
 
 The application will now be running on your [localhost.](http://localhost:8501/)
 
-OR YOU CAN DIRECTLY ACCESS TEH APPLICATION HOSTED ON HEROKU https://recommender-engine-streamlit.herokuapp.com/
+OR YOU CAN DIRECTLY ACCESS THE APPLICATION HOSTED ON HEROKU https://recommender-engine-streamlit.herokuapp.com/
 
 ## RECOMMENDATION ENGINE:
 
@@ -76,4 +76,3 @@ This is essentially the backend of our application.
 4. Overview is currently a long string. We split overview into a list of smaller strings (each word)
 5. We introduce a new field 'tags' that incorporate all the members of 'overview', 'keywords', 'genres', 'cast', 'crew' fields. This is the actual field with which we wll compare and find relationship among movies.
 6. Next we use the Natural Language Toolkit of Python (nltk) to transform the tags of teh movies to stem words. In thsi way, similar words will be identifies as similar by our algorithm.
-7. 
