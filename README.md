@@ -39,13 +39,15 @@ Here we assume that if if two users like similar movies, they will keep liking s
 
 In the home page, you can find 10 most popular movies and 10 highest rated movies. This is the firsta nd most general of all recommendation systems.
 
-![image](https://user-images.githubusercontent.com/77076578/170585862-e146667a-1c57-4442-93a1-cf25492e4185.png)
-![image](https://user-images.githubusercontent.com/77076578/170586012-e236a6bb-4924-4634-95bb-18bf0634c3e4.png)
+![image](https://user-images.githubusercontent.com/77076578/170788127-17ac9f9f-ef52-4d7d-b283-8418b29a1af8.png)
+![image](https://user-images.githubusercontent.com/77076578/170788159-38abdd1e-d9b9-43dc-9cd2-eb22ef4485bc.png)
+
 
 In the Search Page (most important), the user can search for a movie or choose from the dropdown. Click on the Recommend Button. The application then recommends 5 movies using Content-Based Recommendation in "Movies Like This" section and 5 movies using Collaborative Filtering in "Users Also Liked" section.
 
-![image](https://user-images.githubusercontent.com/77076578/170586080-514e5b8c-5140-4fe8-9f45-9fbf6568ced3.png)
-![image](https://user-images.githubusercontent.com/77076578/170586252-d52371e7-8df9-4ef0-82b3-08689fe02677.png)
+![image](https://user-images.githubusercontent.com/77076578/170788273-e528b54d-565a-4e30-963c-8c9321dc9aed.png)
+![image](https://user-images.githubusercontent.com/77076578/170788330-aac72d0b-5b81-4906-b983-cc10de7995c2.png)
+
 
 ## IMPLEMENTATION
 
