@@ -224,17 +224,3 @@ if page == "Search":
         with col5:
             st.text(names[4])
             st.image(posters[4])
-
-#--------------------------------------------------------
-# 4.USER ACCOUNT PAGE
-#--------------------------------------------------------
-
-if page == "My Account":
-    st.header("Welcome User "+str(user))
-    choice=st.selectbox(
-        'Choose a movie.',
-        list(range(1,611))
-    )
-
-    if st.button("Recommend"):
-        user=choice
