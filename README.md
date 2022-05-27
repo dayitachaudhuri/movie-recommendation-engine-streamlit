@@ -51,3 +51,29 @@ In teh Search Page (most important), the user can search for a movie or choose f
 
 ## IMPLEMENTATION
 
+Project directory resembles the below - 
+
+![image](https://user-images.githubusercontent.com/77076578/170717861-6bd78b5e-f11e-40a6-9fee-ced5bb8921d9.png)
+
+#### recommendation-engine.ipynb
+
+This is essentially the backend of our application.
+
+1. We use the pandas library to import the datasets. We merge credits.csv into movies.csv on the basis of the id column. Next we merge the links.csv into the current movies.csv. After that we sort our the relevant columns from movies.csv and remove the rest. Relevant columns include -
+- Movie ID (TMDB)
+- Title
+- Overview
+- Keywords
+- Genres
+- Cast
+- Crew
+- Popularity
+- Average Vote
+- Movie ID (MovieLens)
+
+2. We use the ast library to convert genres, keywords and cast fields to list format which will be easier to process. For cast, we keep only the first 5 names and remove the rest for relevance. Then we extract director's name from crew and place it as the only item in a list in crew field.
+3. Since we need our model to identify cast and crew first and last names together as one entity, we remove all white spaces from cast and crew field entries. We also remove white spaces from keyword entries.
+4. Overview is currently a long string. We split overview into a list of smaller strings (each word)
+5. We introduce a new field 'tags' that incorporate all the members of 'overview', 'keywords', 'genres', 'cast', 'crew' fields. This is the actual field with which we wll compare and find relationship among movies.
+6. Next we use the Natural Language Toolkit of Python (nltk) to transform the tags of teh movies to stem words. In thsi way, similar words will be identifies as similar by our algorithm.
+7. 
