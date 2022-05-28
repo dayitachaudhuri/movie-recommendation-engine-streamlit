@@ -84,8 +84,8 @@ st.title("Movie Recommender")
 with st.sidebar:
     page = option_menu(
         menu_title = None,
-        options = ["Home","Search","My Account"],
-        icons = ["house","search","person"],
+        options = ["Home","Search"],
+        icons = ["house","search"],
     )
 
 #--------------------------------------------------------
